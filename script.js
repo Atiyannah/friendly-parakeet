@@ -1,10 +1,13 @@
 /// Assignment code here
-var numbers = "1234567890";
-var lowercaseLetters = "abcdefghijklmnopqrstuvwxyz";
-var uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var specialCharacters = "!?%$&@#^*_+-=";
+var numbers = ["1","2","3","4","5","6","7","8","9","0"];
+var lowercaseLetters = ["a","b","c", "d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+var uppercaseLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+var specialCharacters = ["!","?","%","$","&","@","#","^","*","_","+","-","="];
 
 var generatedPasswordLength = [];
+console.log(generatedPasswordLength);
+
+var userOptions = [];
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -17,34 +20,42 @@ function writePassword() {
   // password criteria
   var numbersConfirm = window.confirm ("Would you like your password to have NUMBERS?");
     if (numbersConfirm) {
-    for (var i = 0; i < numbers.length; i++); {
-    }
+    userOptions = userOptions.concat(numbers);
+    // console.log(userOptions);
+    var randomChar = Math.floor(Math.random() * 10);
   }
   else {
     window.alert("Okay, you do NOT want numbers in your password.");
   }
   var lowercaseLettersConfirm = window.confirm ("Would you like your password to have LOWERCASE LETTERS?");
     if (lowercaseLettersConfirm) {
-    for (var i = 0; i < lowercaseLetters.length; i++);
+    userOptions = userOptions.concat(lowercaseLetters);
+    // console.log(userOptions);
+    var randomChar = Math.floor(Math.random() * 26);
   }
   else {
     window.alert("Okay, you do NOT want lowercase letters in your password.");
   }
   var uppercaseLettersConfirm = window.confirm ("Would you like your password to have UPPERCASE LETTERS?");
     if (uppercaseLettersConfirm) {
-    for (var i = 0; i < uppercaseLetters.length; i++);
+    userOptions = userOptions.concat(uppercaseLetters);
+    // console.log(userOptions);
+    var randomChar = Math.floor(Math.random() * 26);
   }
   else {
     window.alert("Okay, you do NOT want uppercase letters in your password.");
   }
   var specialCharactersConfirm = window.confirm ("Would you like your password to have SPECIAL CHARACTERS?");
     if (specialCharactersConfirm) {
-    for (var i = 0; i < specialCharacters.length; i++);
+    userOptions = userOptions.concat(specialCharacters);
+    // console.log(userOptions);
+    var randomChar = Math.floor(Math.random() * 13);
   }
   else {
     window.alert("Okay, you do NOT want special characters in your password.");
   }
-
+  generatedPasswordLength = generatedPasswordLength.concat(randomChar);
+  console.log(generatedPasswordLength);
   // passwordText.value = password;
 
 };
