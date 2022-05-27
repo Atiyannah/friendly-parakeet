@@ -3,12 +3,9 @@ var numbers = ["1","2","3","4","5","6","7","8","9","0"];
 var lowercaseLetters = ["a","b","c", "d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var uppercaseLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var specialCharacters = ["!","?","%","$","&","@","#","^","*","_","+","-","="];
-
 var generatedPasswordLength = [];
-console.log(generatedPasswordLength);
-
+// console.log(generatedPasswordLength);
 var userOptions = [];
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -22,7 +19,9 @@ function writePassword() {
     if (numbersConfirm) {
     userOptions = userOptions.concat(numbers);
     // console.log(userOptions);
-    var randomChar = Math.floor(Math.random() * 10);
+    for (var i = 0; i < 10; i++)
+      var randomChar = Math.floor(Math.random() * 10);
+      console.log(randomChar);
   }
   else {
     window.alert("Okay, you do NOT want numbers in your password.");
@@ -66,7 +65,7 @@ generateBtn.addEventListener("click", writePassword);
 // function to generate password length
 var passwordLength = function() {
   var promptPassword = window.prompt("How long would you like your password to be? Choose a number between 8 and 128.");
-  if (promptPassword >= 8 && promptPassword <= 128) {
+  if (promptPassword > 8 && promptPassword < 128) {
     console.log(promptPassword);
     writePassword();
   }
